@@ -18,7 +18,7 @@ MV-IDP5204 的默认接收参数为 Action `com.service.scanner.data`、数据�
 
 ## 下载和文档
 
-- **安装包**：在本仓库右侧 **Releases** 下载 `pda-registry-v0.1.13-test.apk`，安装后显示“PDA扫码登记”。
+- **[版本下载](../../releases/tag/v0.1.13)**：下载 `pda-registry-v0.1.13-test.apk` 安装，或下载用户资料包一次取得 APK、手册和模板；安装后显示“PDA扫码登记”。
 - **[完整图文操作手册](docs/USER_MANUAL.md)**：安装、扫码、盘点、打印与故障排查。
 - **[PDF 操作手册](docs/PDA扫码登记-操作手册.pdf)**：可下载离线查看、打印或发给操作人员。
 - **[资产盘点导入模板](docs/templates/资产盘点导入模板.xlsx)**：下载原始文件，填写第一张“资产清单”。
