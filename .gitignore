@@ -1,0 +1,36 @@
+.codegraph/
+.gradle/
+**/build/
+local.properties
+*.iml
+.idea/
+
+# Local SDKs, design exports, historical builds and internal verification data
+SDK/
+outputs/
+pencli/
+pencli/
+dist/
+tmp/
+.local-archive/
+output/
+app/libs/*.jar
+
+# Signing material and device data
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+.venv/
+.DS_Store
+Thumbs.db

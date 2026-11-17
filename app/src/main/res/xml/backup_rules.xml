@@ -1,0 +1,4 @@
+<full-backup-content>
+    <include domain="database" path="registry.db" />
+    <include domain="sharedpref" path="settings.xml" />
+</full-backup-content>

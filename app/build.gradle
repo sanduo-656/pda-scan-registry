@@ -1,0 +1,41 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.sanduo.pdaregistry'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'com.sanduo.pdaregistry'
+        minSdk 26
+        targetSdk 35
+        versionCode 14
+        versionName '0.1.13'
+        testInstrumentationRunner 'com.sanduo.pdaregistry.RegistryTestRunner'
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    buildFeatures { buildConfig true }
+    flavorDimensions 'environment'
+    productFlavors {
+        standard {
+            dimension 'environment'
+            resValue 'string', 'app_name', 'PDA扫码登记'
+            buildConfigField 'boolean', 'AUTO_PIN_SHORTCUT', 'true'
+        }
+        verification {
+            dimension 'environment'
+            applicationIdSuffix '.verification'
+            resValue 'string', 'app_name', 'PDA登记验证'
+            buildConfigField 'boolean', 'AUTO_PIN_SHORTCUT', 'false'
+        }
+    }
+    buildTypes { release { minifyEnabled false } }
+    lint { abortOnError true }
+}
+def printerSdk = file('libs/LPAPI-2026-10-21-R.jar')
+tasks.register('verifyPrinterSdk') {
+    doLast {
+        if (!printerSdk.isFile()) {
+            throw new GradleException('Missing printer SDK: app/libs/LPAPI-2026-10-21-R.jar. See docs/DEVELOPMENT.md.')
+        }
+    }
+}
+tasks.named('preBuild').configure { dependsOn('verifyPrinterSdk') }
+dependencies { implementation files(printerSdk) }
